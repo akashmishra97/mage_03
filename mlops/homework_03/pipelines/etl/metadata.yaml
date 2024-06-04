@@ -1,0 +1,80 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/data_loaders/loader.py
+  downstream_blocks:
+  - transformer
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: loader
+  retry_config: null
+  status: failed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: loader
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/transformer.py
+  downstream_blocks:
+  - modeltrainer
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transformer
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - loader
+  uuid: transformer
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/modeltrainer.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: modeltrainer
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - transformer
+  uuid: modeltrainer
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-06-04 07:33:02.940716+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: etl
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: etl
+variables_dir: /home/src/mage_data/homework_03
+widgets: []
